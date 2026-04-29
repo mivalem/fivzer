@@ -1,29 +1,25 @@
 from flask import Flask, redirect
 import requests
+import os
 
 app = Flask(__name__)
 
-# 🔴 ВСТАВЬ СЮДА WEBHOOK
-WEBHOOK_URL = "https://discordapp.com/api/webhooks/1499147387527237784/--MmQlV9AAbfPsoBO2GJcOxrRVZ3zR0UdonTznFov6j1rMQM-VwQRtmZzjgn29iUMj_n"
-
+WEBHOOK_URL = os.getenv("https://discordapp.com/api/webhooks/1499147387527237784/--MmQlV9AAbfPsoBO2GJcOxrRVZ3zR0UdonTznFov6j1rMQM-VwQRtmZzjgn29iUMj_n")
 REDIRECT_URL = "https://google.com"
-
 
 @app.route("/")
 def home():
     try:
         requests.post(
             WEBHOOK_URL,
-            json={
-                "content": "👀 Кто-то перешёл по твоей ссылке"
-            },
+            json={"content": "👀 Кто-то перешёл по ссылке"},
             timeout=5
         )
-    except Exception as e:
-        print("Ошибка Discord:", e)
+    except:
+        pass
 
     return redirect(REDIRECT_URL)
 
 
-if __name__ == "__main__":
-    app.run(port=8080)
+if name == "__main__":
+    app.run(host="0.0.0.0", port=10000)
